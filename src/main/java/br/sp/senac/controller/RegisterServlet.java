@@ -42,10 +42,10 @@ public class RegisterServlet extends HttpServlet {
         
         if (resultado.equals("Conta criada com sucesso!")) {
             request.setAttribute("sucesso", resultado);
-            response.sendRedirect(request.getContextPath() + "/views/login.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/novasPaginas/login.jsp");
         } else {
             request.setAttribute("erro", resultado);
-            request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/novasPaginas/register.jsp").forward(request, response);
         }
 
         System.out.println("Novo cliente registrado: " + nome + " (" + email + ")");

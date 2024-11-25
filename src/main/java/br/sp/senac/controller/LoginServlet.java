@@ -46,16 +46,16 @@ public class LoginServlet extends HttpServlet {
 
             if ("admin".equals(userType)) {
                 request.getSession().setAttribute("mensagem", "Login de Admin realizado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/views/MenuFuncionario.jsp");
+                response.sendRedirect(request.getContextPath() + "/views/novasPaginas/menuFuncionario.jsp");
             } else if ("cliente".equals(userType)) {
                 request.getSession().setAttribute("mensagem", "Login de Cliente realizado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/views/MenuCliente.jsp");
+                response.sendRedirect(request.getContextPath() + "/views/novasPaginas/menuCliente.jsp");
             } else {
                 throw new IllegalArgumentException("Usuário ou senha inválidos.");
             }
         } catch (Exception e) {
             request.getSession().setAttribute("erro", e.getMessage());
-            response.sendRedirect(request.getContextPath() + "/views/login.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/novasPaginas/login.jsp");
         }
     }
 }

@@ -1,21 +1,14 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<body>
-    <h1>Bem-vindo ao Timolina!</h1>
-    <a href="login.jsp">Login</a><br>
-    <a href="register.jsp">Cadastro</a><br>
-    <a href="listProdutos.jsp">Ver Produtos</a><br>
-</body>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timolina - Ofertas da Semana</title>
-    <link rel="stylesheet" href="../css/MenuCliente.css">
+<meta charset="UTF-8">
+<title>Timolina</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MenuCliente.css">
 </head>
 <body>
-    <header>
+<header>
         <div class="logo">Timolina</div>
         <span>Bem-Vindo</span>
         <div class="search-bar">
@@ -62,6 +55,6 @@
             <button class="ver-mais">VER MAIS</button>
         </section>
     </main>
+
 </body>
 </html>
-
