@@ -77,6 +77,9 @@ public class ProdutoServlet extends HttpServlet {
     }catch (SQLException e) {
     	e.printStackTrace();
     	System.out.println("Erro ao salvar o produto: " + e.getMessage());
-    }
+    } catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
 }

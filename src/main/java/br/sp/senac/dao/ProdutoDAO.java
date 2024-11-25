@@ -13,11 +13,11 @@ public class ProdutoDAO {
 		
 	}
 	
-	private Connection getConnection() throws SQLException {
+	private Connection getConnection() throws SQLException, ClassNotFoundException {
 		return DBConnection.getConnection();
 	}
 	
-	public boolean salvar(Produto produto) throws SQLException {
+	public boolean salvar(Produto produto) throws SQLException, ClassNotFoundException {
 		String sql = "INSERT INTO produto (nome, valor, categoria, marca) VALUES (?, ?, ?, ?)";
 		
 		try(Connection con = DBConnection.getConnection();
@@ -38,7 +38,7 @@ public class ProdutoDAO {
 			
 	}
 	
-	public List<Produto> listarTodos() {
+	public List<Produto> listarTodos() throws ClassNotFoundException {
         List<Produto> produtos = new ArrayList<>();
         String sql = "SELECT * FROM produto"; 
         try (Connection con = DBConnection.getConnection();
@@ -65,7 +65,7 @@ public class ProdutoDAO {
     }
 
 
-	public Produto buscarPorId(int id) {
+	public Produto buscarPorId(int id) throws ClassNotFoundException {
 		String sql = "SELECT * FROM produto WHERE id = ?";
 		Produto produto = null;
 		

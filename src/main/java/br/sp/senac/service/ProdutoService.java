@@ -14,7 +14,7 @@ public class ProdutoService {
         produtoDAO = new ProdutoDAO();
     }
 
-    public boolean adicionarProduto(Produto produto) {
+    public boolean adicionarProduto(Produto produto) throws ClassNotFoundException {
         if (produto == null || produto.getNome() == null || produto.getPreco() <= 0) {
             return false;
         }
@@ -26,7 +26,7 @@ public class ProdutoService {
         }
     }
 
-    public List<Produto> listarProduto() {
+    public List<Produto> listarProduto() throws ClassNotFoundException {
         List<Produto> produtos = produtoDAO.listarTodos();
         return produtos != null ? produtos : List.of();
     }

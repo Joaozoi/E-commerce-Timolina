@@ -10,7 +10,7 @@ public class ClienteDAO {
 	
 	private Connection connection;
 	
-	  public ClienteDAO() throws SQLException {
+	  public ClienteDAO() throws SQLException, ClassNotFoundException {
 	        this.connection = DBConnection.getConnection();
 	    }
 	  

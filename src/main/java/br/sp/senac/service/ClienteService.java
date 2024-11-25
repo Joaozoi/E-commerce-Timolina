@@ -10,7 +10,7 @@ public class ClienteService {
 
     private ClienteDAO clienteDAO;
 
-    public ClienteService() throws SQLException {
+    public ClienteService() throws SQLException, ClassNotFoundException {
         this.clienteDAO = new ClienteDAO();
     }
 

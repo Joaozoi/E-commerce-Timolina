@@ -6,9 +6,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
-import java.util.HashMap;
-import br.sp.senac.model.Cliente;
+import java.sql.SQLException;
+
 import br.sp.senac.service.*;
 
 
@@ -19,8 +18,9 @@ public class RegisterServlet extends HttpServlet {
     
     private ClienteService clienteService;
     
-    public RegisterServlet() {
+    public RegisterServlet() throws SQLException, ClassNotFoundException {
         super();
+        clienteService = new ClienteService(); 
     }
 
     @Override
@@ -30,19 +30,24 @@ public class RegisterServlet extends HttpServlet {
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         
+       
+        if (email == null || senha == null || nome == null || endereco == null ||
+            email.isEmpty() || senha.isEmpty() || nome.isEmpty() || endereco.isEmpty()) {
+            request.setAttribute("erro", "Todos os campos são obrigatórios.");
+            request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+            return;
+        }
+        
         String resultado = clienteService.registrarCliente(email, senha, nome, endereco);
         
         if (resultado.equals("Conta criada com sucesso!")) {
-        	request.setAttribute("sucesso", resultado);
-        	response.sendRedirect(request.getContextPath() + "/views/login.jsp");
+            request.setAttribute("sucesso", resultado);
+            response.sendRedirect(request.getContextPath() + "/views/login.jsp");
         } else {
-        	request.setAttribute("erro", resultado);
-        	request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+            request.setAttribute("erro", resultado);
+            request.getRequestDispatcher("/views/register.jsp").forward(request, response);
         }
-        	
-            
-            System.out.println("Novo cliente registrado: " + nome + " (" + email + ")");
-            
-           
-        }
+
+        System.out.println("Novo cliente registrado: " + nome + " (" + email + ")");
     }
+}
