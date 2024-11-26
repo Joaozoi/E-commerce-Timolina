@@ -24,24 +24,29 @@
 
     <main>
         <h2>Adicionar produto</h2>
-        <form action="/TIMOLINAZOIO/ProdutoServlet" method="post" enctype="multipart/form-data">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required>
+       <form action="${pageContext.request.contextPath}/ProdutoServlet" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required>
+    
+    <label for="descricao">Descrição:</label>
+    <textarea name="descricao" id="descricao"></textarea>
+    
+    <label for="preco">Preço:</label>
+    <input type="text" name="preco" id="preco" required>
+    
+    <label for="categoria">Categoria:</label>
+    <input type="text" name="categoria" id="categoria">
+    
+    <label for="marca">Marca:</label>
+    <input type="text" name="marca" id="marca">
+    
+    <label for="estoque">Estoque:</label>
+    <input type="number" name="estoque" id="estoque" value="0">
+    
+    <button type="submit">Cadastrar Produto</button>
+</form>
 
-            <label for="valor">Valor</label>
-            <input type="number" id="valor" name="valor" required placeholder="R$">
 
-            <label for="categoria">Categoria</label>
-            <input type="text" id="categoria" name="categoria" required>
-
-            <label for="marca">Marca</label>
-            <input type="text" id="marca" name="marca" required>
-
-            <label for="imagem">Imagem</label>
-            <input type="file" id="imagem" name="imagem" required>
-
-            <button type="submit">Cadastrar</button>
-        </form>
 
        
      

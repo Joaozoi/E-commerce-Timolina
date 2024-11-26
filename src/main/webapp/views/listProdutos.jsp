@@ -1,33 +1,45 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="pt-br">
+<%@ taglib uri="jakarta.servlet.jsp.jstl.core" prefix="c" %>
+<%@ page import="br.sp.senac.model.Produto" %>
+
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Lista de Produtos</title>
 </head>
 <body>
     <h1>Lista de Produtos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-           
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descri��o</th>
+            <th>Pre�o</th>
+            <th>Categoria</th>
+            <th>Marca</th>
+            <th>Estoque</th>
+        </tr>
+
+        <!-- Usando JSTL para iterar sobre a lista de produtos -->
+        <c:if test="${not empty produtos}">
             <c:forEach var="produto" items="${produtos}">
                 <tr>
+                    <td>${produto.id}</td>
                     <td>${produto.nome}</td>
                     <td>${produto.descricao}</td>
                     <td>${produto.preco}</td>
-                    <td><a href="detalhesProduto.jsp?id=${produto.id}">Detalhes</a></td>
+                    <td>${produto.categoria}</td>
+                    <td>${produto.marca}</td>
+                    <td>${produto.estoque}</td>
                 </tr>
             </c:forEach>
-        </tbody>
+        </c:if>
+
+        <!-- Caso a lista de produtos esteja vazia -->
+        <c:if test="${empty produtos}">
+            <tr>
+                <td colspan="7">Nenhum produto encontrado.</td>
+            </tr>
+        </c:if>
     </table>
-    <a href="home.jsp">Voltar à página inicial</a>
 </body>
 </html>

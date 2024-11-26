@@ -10,24 +10,23 @@ public class ProdutoService {
 
     private ProdutoDAO produtoDAO;
 
-    public ProdutoService() throws SQLException {
-        produtoDAO = new ProdutoDAO();
+    public ProdutoService() throws SQLException, ClassNotFoundException {
+        produtoDAO = new ProdutoDAO();  
     }
 
-    public boolean adicionarProduto(Produto produto) throws ClassNotFoundException {
+    public boolean adicionarProduto(Produto produto) throws ClassNotFoundException, SQLException {
         if (produto == null || produto.getNome() == null || produto.getPreco() <= 0) {
             return false;
         }
         try {
-            return produtoDAO.salvar(produto);
+            return produtoDAO.salvar(produto);  
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            throw new SQLException("Erro ao adicionar produto", e);  
         }
     }
 
-    public List<Produto> listarProduto() throws ClassNotFoundException {
-        List<Produto> produtos = produtoDAO.listarTodos();
-        return produtos != null ? produtos : List.of();
+    public List<Produto> listarProduto() throws SQLException, ClassNotFoundException {
+        return produtoDAO.listarTodos();  
     }
 }

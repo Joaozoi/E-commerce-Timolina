@@ -1,23 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Timolina</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MenuCliente.css">
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="../styles/MenuCliente.css">
 </head>
 <body>
-<header>
+    
+    
+    <header>
         <div class="logo">Timolina</div>
-        <span>Bem-Vindo</span>
+       
         <div class="search-bar">
             <input type="text" placeholder="Pesquise por produtos">
             <button class="search-button"></button>
         </div>
         <div class="user-options">
-            <a href="#">Entre ou cadastre-se </a>
-            <a href="adicionar cod do gusta">Meus Pedidos </a>
+            <a href="login.jsp">Entre </a>
+            <a href="register.jsp">Registre-se </a>
+            
+            
+            <a href="">Meus Pedidos </a>
         </div>
     </header>
 
@@ -27,25 +31,25 @@
             <div class="carousel">
                 <button class="arrow left"></button>
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+                    <img src="../imgs/coca.png" alt="Coca Cola Lata" width="100">
                     <p>Coca Cola lata 269ml</p>
                     <p>R$ 4,00</p>
                     <button>ADICIONAR</button>
                 </div>
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+                    <img src="../imgs/coca.png" alt="Coca Cola Lata" width="100">
                     <p>Coca Cola lata 269ml</p>
                     <p>R$ 4,00</p>
                     <button>ADICIONAR</button>
                 </div>
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+                    <img src="../imgs/coca.png" alt="Coca Cola Lata" width="100">
                     <p>Coca Cola lata 269ml</p>
                     <p>R$ 4,00</p>
                     <button>ADICIONAR</button>
                 </div>
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+                    <img src="../imgs/coca.png" alt="Coca Cola Lata" width="100">
                     <p>Coca Cola lata 269ml</p>
                     <p>R$ 4,00</p>
                     <button>ADICIONAR</button>
@@ -55,6 +59,8 @@
             <button class="ver-mais">VER MAIS</button>
         </section>
     </main>
-
 </body>
 </html>
+    
+
+
