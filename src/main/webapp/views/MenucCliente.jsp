@@ -21,7 +21,7 @@
             <a href="register.jsp">Registre-se </a>
             
             
-            <a href="">Meus Pedidos </a>
+            <a href="meusPedidos.jsp">Meus Pedidos </a>
         </div>
     </header>
 

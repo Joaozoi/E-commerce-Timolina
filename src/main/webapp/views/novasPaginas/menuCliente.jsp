@@ -17,7 +17,7 @@
         </div>
         <div class="user-options">
             <a href="#">Entre ou cadastre-se </a>
-            <a href="adicionar cod do gusta">Meus Pedidos </a>
+            <a href="../../views/meusPedidos.jsp">Meus Pedidos </a>
         </div>
     </header>
 
@@ -27,29 +27,33 @@
             <div class="carousel">
                 <button class="arrow left"></button>
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
-                    <p>Coca Cola lata 269ml</p>
-                    <p>R$ 4,00</p>
-                    <button>ADICIONAR</button>
-                </div>
+    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+    <p>Coca Cola lata 269ml</p>
+    <p>R$ 4,00</p>
+    <button id="adicionarCoca" onclick="adicionarAoCarrinho('Coca Cola lata 269ml', 4)">ADICIONAR</button>
+</div>
+
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
-                    <p>Coca Cola lata 269ml</p>
-                    <p>R$ 4,00</p>
-                    <button>ADICIONAR</button>
-                </div>
+    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+    <p>Coca Cola lata 269ml</p>
+    <p>R$ 4,00</p>
+    <button id="adicionarCoca" onclick="adicionarAoCarrinho('Coca Cola lata 269ml', 4)">ADICIONAR</button>
+</div>
+
                 <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
-                    <p>Coca Cola lata 269ml</p>
-                    <p>R$ 4,00</p>
-                    <button>ADICIONAR</button>
-                </div>
-                <div class="product">
-                    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
-                    <p>Coca Cola lata 269ml</p>
-                    <p>R$ 4,00</p>
-                    <button>ADICIONAR</button>
-                </div>
+    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+    <p>Coca Cola lata 269ml</p>
+    <p>R$ 4,00</p>
+    <button id="adicionarCoca" onclick="adicionarAoCarrinho('Coca Cola lata 269ml', 4)">ADICIONAR</button>
+</div>
+
+              <div class="product">
+    <img src="../../imgs/coca.png" alt="Coca Cola Lata" width="100">
+    <p>Coca Cola lata 269ml</p>
+    <p>R$ 4,00</p>
+    <button id="adicionarCoca" onclick="adicionarAoCarrinho('Coca Cola lata 269ml', 4)">ADICIONAR</button>
+</div>
+
                 <button class="arrow right"></button>
             </div>
             <button class="ver-mais">VER MAIS</button>
