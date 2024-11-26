@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Clientes</title>
+<title>Produtos</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/manutencaoClientes.css">
 </head>
@@ -42,7 +42,7 @@
 					href="${pageContext.request.contextPath}/views/novasPaginas/exibicao/relatorioDetalhado.jsp"><img
 					src="${pageContext.request.contextPath}/imagens/Icon-2.png">Relatorio
 					Detalhado</a>
-				<!-- Adicionar link -->
+				<!-- Adicionar lin -->
 				<br> <br> <a
 					href="${pageContext.request.contextPath}/views/novasPaginas/exibicao/relatorioResumido.jsp"><img
 					src="${pageContext.request.contextPath}/imagens/icon-3.png">Relatorio
@@ -52,37 +52,32 @@
 			</div>
 		</div>
 		<div class="barraLateralDireita">
-			<span>Clientes</span> <br> <br>
+			<span>Produtos</span> <br> <br>
 			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nome</th>
-						<th>Data de Nascimento</th>
-						<th>Telefone</th>
-						<th>E-mail</th>
-						<th>CPF</th>
-						<th>Detalhes</th>
-						
-					</tr>
-				</thead>
-				<tbody>
+        <thead>
+            <tr>
+            	<th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <c:forEach var="produto" items="${produtos}">
+                <tr>
+                	<td>${produto.id}</td>
+                    <td>${produto.nome}</td>
+                    <td>${produto.descricao}</td>
+                    <td>${produto.preco}</td>
+                    <td><a href="detalhesProduto.jsp?id=${produto.id}">Detalhes</a></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 
-					<c:forEach var="produto" items="${produtos}">
-						<tr>
-							<td>${cliente.id}</td>
-							<td>${cliente.nome}</td>
-							<td>${cliente.nascimento}</td>
-							<td>${cliente.telefone}</td>
-							<td>${cliente.email}</td>
-							<td>${cliente.cpf}</td>
-							<td><a href="detalhesProduto.jsp?id=${cliente.id}">Detalhes</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-
-			<button type="submit">Adicionar Cliente</button>
+			<button type="submit">Adicionar Produto</button>
 		</div>
 
 

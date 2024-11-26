@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import br.sp.senac.dao.ProdutoDAO;
 import br.sp.senac.model.Produto;
+import br.sp.senac.service.ProdutoService;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -14,12 +16,28 @@ import java.util.List;
 @WebServlet("/ProdutoServlet")
 public class ProdutoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    public ProdutoServlet() {
-        super();
+    
+    private final ProdutoService produtoService;
+    
+    public ProdutoServlet() throws ClassNotFoundException, SQLException {
+        this.produtoService = new ProdutoService();
+		
     }
-    
-    
+
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            List<Produto> produtos = produtoService.listarProduto();
+            request.setAttribute("produtos", produtos);
+            request.getRequestDispatcher("views/listProdutos.jsp").forward(request, response);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao listar produtos.");
+        }
+    }
+
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nome");
@@ -68,25 +86,7 @@ public class ProdutoServlet extends HttpServlet {
         }
     }
     
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            ProdutoDAO produtoDAO = new ProdutoDAO();
-            List<Produto> produtos = produtoDAO.listarTodos(); 
-            if (produtos.isEmpty()) {
-                request.setAttribute("mensagem", "Nenhum produto encontrado.");
-            } else {
-                request.setAttribute("produtos", produtos); 
-            }
 
-            
-            request.getRequestDispatcher("/views/produtos.jsp").forward(request, response);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            request.setAttribute("erro", "Erro ao recuperar os produtos do banco.");
-            request.getRequestDispatcher("/views/error.jsp").forward(request, response);
-        }
-    }
 }
     
 

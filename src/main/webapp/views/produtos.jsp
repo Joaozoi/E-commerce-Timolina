@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ import="java.util.List" %>
-<%@ import="br.sp.senac.model.Produto" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,18 +40,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% 
-                        List<Produto> produtos = (List<Produto>) request.getAttribute("produtos");
-                        for (Produto produto : produtos) {
-                    %>
-                        <tr>
-                            <td><%= produto.getId() %></td>
-                            <td><%= produto.getNome() %></td>
-                            <td><%= produto.getDescricao() %></td>
-                            <td><%= produto.getPreco() %></td>
-                            <td><a href="detalhesProduto.jsp?id=<%= produto.getId() %>">Detalhes</a></td>
-                        </tr>
-                    <% } %>
+          
+               
+                    
                 </tbody>
             </table>
             <a href="${pageContext.request.contextPath}/views/novasPaginas/cadastroProduto.jsp">
