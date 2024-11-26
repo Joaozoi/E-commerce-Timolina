@@ -1,33 +1,28 @@
 package br.sp.senac.model;
 
 public class Produto {
-    private int id;              
-    private String nome;         
-    private String descricao;    
-    private double preco;       
-    private String categoria;    
-    private String marca;        
-    private int estoque;         
-    private String imagemUrl;   
+    private int id;
+    private String nome;
+    private String descricao;
+    private double preco;
+    private String categoria;
+    private String marca;
+    private int estoque;
 
-    
+    // Construtores
     public Produto() {
     }
 
-  
-    public Produto(int id, String nome, String descricao, double preco, String categoria, String marca, int estoque, String imagemUrl) {
-        this.id = id;
+    public Produto(String nome, String descricao, double preco, String categoria, String marca, int estoque) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.categoria = categoria;
         this.marca = marca;
         this.estoque = estoque;
-        this.imagemUrl = imagemUrl;
     }
 
-    
-
+    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -82,20 +77,5 @@ public class Produto {
 
     public void setEstoque(int estoque) {
         this.estoque = estoque;
-    }
-
-    public String getImagemUrl() {
-        return imagemUrl;
-    }
-
-    public void setImagemUrl(String imagemUrl) {
-        this.imagemUrl = imagemUrl;
-    }
-
-    
-    @Override
-    public String toString() {
-        return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + ", categoria=" + categoria 
-                + ", marca=" + marca + ", estoque=" + estoque + ", imagemUrl=" + imagemUrl + "]";
     }
 }
