@@ -40,7 +40,7 @@
 					href="${pageContext.request.contextPath}/views/novasPaginas/exibicao/relatorioDetalhado.jsp"><img
 					src="${pageContext.request.contextPath}/imagens/Icon-2.png">Relatorio
 					Detalhado</a>
-				<!-- Adicionar link -->
+				<!-- Adicionar lin -->
 				<br> <br> <a
 					href="${pageContext.request.contextPath}/views/novasPaginas/exibicao/relatorioResumido.jsp"><img
 					src="${pageContext.request.contextPath}/imagens/icon-3.png">Relatorio
