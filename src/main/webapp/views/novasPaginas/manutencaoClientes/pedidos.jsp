@@ -49,11 +49,27 @@
 			</div>
 		</div>
 		<div class="barraLateralDireita">
-			<span>Pedidos</span>
-			<br>  
-   <br>
-   Nenhum pedido salvo ainda
- 
+			<span>Pedidos</span> <br> <br>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Data</th>
+						<th>Valor</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach var="produto" items="${produtos}">
+						<tr>
+							<td>${pedido.id}</td>
+							<td>${pedido.Data}</td>
+							<td>${pedido.valor}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
 
 		</div>
 
