@@ -9,7 +9,7 @@ public class Produto {
     private String marca;
     private int estoque;
 
-    // Construtores
+    
     public Produto() {
     }
 

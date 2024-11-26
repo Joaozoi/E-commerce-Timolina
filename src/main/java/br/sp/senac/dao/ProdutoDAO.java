@@ -9,17 +9,17 @@ import java.util.ArrayList;
 public class ProdutoDAO {
     private Connection connection;
 
-   
+    // Construtor que inicializa a conexão com o banco
     public ProdutoDAO() throws SQLException, ClassNotFoundException {
-        this.connection = DBConnection.getConnection(); 
+        this.connection = DBConnection.getConnection();
     }
 
-    
-    private Connection getConnection() throws SQLException {
+    // Método para obter a conexão
+    private Connection getConnection() {
         return this.connection;
     }
 
-   
+    // Método para salvar um novo produto no banco de dados
     public boolean salvar(Produto produto) throws SQLException {
         String sql = "INSERT INTO produto (nome, descricao, preco, categoria, marca, estoque) VALUES (?, ?, ?, ?, ?, ?)";
         
@@ -31,18 +31,20 @@ public class ProdutoDAO {
             stmt.setString(5, produto.getMarca());       
             stmt.setInt(6, produto.getEstoque());        
 
-            int rowsAffected = stmt.executeUpdate(); 
-            return rowsAffected > 0;
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;  // Se alguma linha foi afetada, significa que o produto foi inserido com sucesso
         }
     }
 
-  
+    // Método para listar todos os produtos
     public List<Produto> listarTodos() throws SQLException {
-        String sql = "SELECT * FROM produto";
         List<Produto> produtos = new ArrayList<>();
+        String sql = "SELECT * FROM produto"; 
+        
+        // Usando a conexão do construtor já inicializada
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
 
-        try (Statement stmt = getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
@@ -58,7 +60,7 @@ public class ProdutoDAO {
         return produtos;
     }
 
-   
+    // Método para buscar um produto por ID
     public Produto buscarPorId(int id) throws SQLException {
         String sql = "SELECT * FROM produto WHERE id = ?";
         Produto produto = null;
@@ -78,6 +80,6 @@ public class ProdutoDAO {
                 produto.setEstoque(rs.getInt("estoque"));
             }
         }
-        return produto;
+        return produto;  // Retorna o produto encontrado ou null caso não exista
     }
 }

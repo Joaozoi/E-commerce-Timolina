@@ -6,6 +6,7 @@ import br.sp.senac.model.Produto;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public class ProdutoService {
 
     private ProdutoDAO produtoDAO;
@@ -27,6 +28,12 @@ public class ProdutoService {
     }
 
     public List<Produto> listarProduto() throws SQLException, ClassNotFoundException {
-        return produtoDAO.listarTodos();  
+    	
+    	    List<Produto> listaProdutos = produtoDAO.listarTodos();
+    	    System.out.println("Produtos encontrados: " + listaProdutos.size());
+    	    return listaProdutos;
+    
+ 
+    	 
     }
 }
