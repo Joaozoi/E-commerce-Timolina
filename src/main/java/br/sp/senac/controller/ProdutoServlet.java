@@ -35,7 +35,7 @@ public class ProdutoServlet extends HttpServlet {
         try {
             List<Produto> produtos = produtoService.listarProduto();
             request.setAttribute("produtos", produtos);
-            request.getRequestDispatcher("views/listarProduto.jsp").forward(request, response);
+            request.getRequestDispatcher("views/listProdutos.jsp").forward(request, response);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Erro ao listar produtos.");

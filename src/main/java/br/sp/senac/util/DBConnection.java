@@ -9,7 +9,7 @@ public class DBConnection {
 	
 	private static final String URL = "jdbc:mysql://localhost:3306/timolina?useSSL=false&serverTimezone=UTC";
 	private static final String USER = "root";
-	private static final String PASSWORD = "Lunaapto74@1";
+	private static final String PASSWORD = "P@$$w0rd";
 	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException{
 		try {

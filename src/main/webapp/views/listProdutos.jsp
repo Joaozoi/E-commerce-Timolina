@@ -1,5 +1,8 @@
-<%@ taglib uri="jakarta.servlet.jsp.jstl.core" prefix="c" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
 <%@ page import="br.sp.senac.model.Produto" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <html>
 <head>
@@ -12,8 +15,8 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
+            <th>DescriÃ§Ã£o</th>
+            <th>PreÃ§o</th>
             <th>Categoria</th>
             <th>Marca</th>
             <th>Estoque</th>
