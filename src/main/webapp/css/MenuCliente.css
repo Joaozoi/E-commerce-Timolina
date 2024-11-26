@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: #f8f8f8 ;
+    background-color: #f8f8f8;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
@@ -22,7 +22,7 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color:  #f57f17;
+    color: #f57f17;
 }
 
 .search-bar {
@@ -71,47 +71,56 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 16px; 
+    justify-content: center; 
 }
 
 .ofertas h2 {
     color: #f57f17;
     font-size: 24px;
     margin-bottom: 20px;
-}
-
-.carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel .arrow {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.carousel .product {
-    background-color: #fff;
-    border: 1px solid #f0f0f0;
-    margin: 0 10px;
-    padding: 20px;
-    width: 150px;
+    width: 100%; 
     text-align: center;
 }
 
-.carousel .product p {
+.product {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 16px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.product img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100px;
+    height: auto;
+}
+
+.product p {
     margin-bottom: 10px;
 }
 
-.carousel .product button {
+.product button {
     background-color: #f57f17;
     color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.product.hidden {
+    display: none; 
 }
 
 .ver-mais {
@@ -123,16 +132,3 @@ main {
     margin-top: 20px;
     border-radius: 5px;
 }
-
-.product {
-    text-align: center;
-    margin: 10px;
-    display: inline-block;
-    width: 150px;
-}
-
-.product img {
-    display: block;
-    margin: 0 auto 10px; 
-}
-
